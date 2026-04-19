@@ -19,7 +19,7 @@ int Selection(vector<double>& arr) {
         int minIndex = i; //starting at element 1
         for (int j = i + 1; j < n; j++) { //j starts at element 2, hence i + 1
             if (arr[j] < arr[minIndex]) { //comparing the target element to the first element
-                minIndex = j; //if true, that becomes the new least element
+                minIndex = j; //if true, store the index of the smallest value j
             }
         }
         
