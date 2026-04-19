@@ -16,17 +16,17 @@ int Selection(vector<double>& arr) {
     int n = arr.size();
     
     for (int i = 0; i < n - 1; i++) { //using n - 1 to dynamically set how many iterations to do depending on array/vector size
-        int minIndex = i; //starting at element 1
-        for (int j = i + 1; j < n; j++) { //j starts at element 2, hence i + 1
-            if (arr[j] < arr[minIndex]) { //comparing the target element to the first element
+        int minIndex = i; //starting at index 1
+        for (int j = i + 1; j < n; j++) { //j starts at index 2, hence i + 1
+            if (arr[j] < arr[minIndex]) { //comparing the target index element to the first index and so on
                 minIndex = j; //if true, store the index of the smallest value j
             }
         }
         
-        if (minIndex != i) { //checks if the first element isnt already the least and then swap if they aren't
+        if (minIndex != i) { //checks if the first index element isnt already the least and then swap if they aren't
             double temp = arr[i]; //set up temp variable to store previous index
-            arr[i] = arr[minIndex];  //move the smallest element to the first index
-            arr[minIndex] = temp; //take the temporary element then set that as the minimum
+            arr[i] = arr[minIndex];  //move the smallest index to the first index
+            arr[minIndex] = temp; //take the temporary index then set that as the minimum
         }
     }
     return -1;
