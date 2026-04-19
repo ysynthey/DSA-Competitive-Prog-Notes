@@ -46,11 +46,14 @@ Output:
 -12 0 1 5 6 7 21 67 87 98
 ```
 If you want to sort in descending order, simply go to:
+```cpp
 if (arr[j] > arr[j + 1])
+```
 
 and change to:
+```cpp
 if (arr[j] < arr[j + 1])
-
+```
 ```
 Output:
 98 87 67 21 7 6 5 1 0 -12
