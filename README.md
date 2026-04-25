@@ -1,4 +1,4 @@
-# DSA & Competitive Programming Notes - ySynthey
+# DSA & Competitive Programming Notes in C++ - ySynthey
 
 Welcome to my public repository for Data Structures, Algorithms (DSA), and Competitive Programming! These notes are a collection of my personal implementations and logic breakdowns, shared publicly because sharing is caring.
 
@@ -10,7 +10,7 @@ Also at the time of creating this repo, I am taking DSA in University and I thin
 ## Table of Contents
 The notes are categorized by their type (Is it about Trees or Linked Lists?) and their time complexities (both in folders) to make it easier to find specific algorithms based on what you're currently interested in.
 Click to be directed to a topic!
-## Sorting
+### Sorting
 
 ### O(n²) -  Quadratic
 * **[Bubble Sort](./Sorting/O(n%5E2)/Bubble.md):** A simple comparison-based sort that bubbles the largest elements to the top.
@@ -20,17 +20,17 @@ Click to be directed to a topic!
 ###  O(n log n) - Linear Logarithmic
 * **[Merge Sort](./O(n%20log%20n)/Merge.md):** A "Divide and Conquer" strategy that splits arrays recursively and merges them back up already sorted in whatever order you want.
 
-## Searching
+### Searching
 soon
 ### O(n²) -  Quadratic
 Binary Search
 
 ## What to expect?
 Each file follows a consistent format:
-1. **Name & Language:** Clear identification of the algorithm.
+1. **Name & Language:** Clear identification of the algorithm and what language to be used.
 2. **Complexity:** Big O notation for time complexity.
-3. **Overview:** Straight-to-the-point explanation.
-4. **Supporting Detail:** Real-life analogies and logic breakdowns.
+3. **Overview:** Straight-to-the-point explanation on what something is from my own understanding.
+4. **Supporting Detail:** Real-life analogies and logic breakdowns. (Haven't added for all)
 5. **Implementation:** Hopefully clean C++ code with detailed comments. Please go easy on me, I'm still (and always am) learning!
 
 ---
