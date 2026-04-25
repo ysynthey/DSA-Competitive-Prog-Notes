@@ -1,4 +1,4 @@
-# Insertion Sort - C++
+# Insertion Sort (C++)
 
 **Complexity:** $O(n^2)$
 
@@ -10,18 +10,6 @@ At the beginning, every book is of course, unsorted and you might be thinking of
 
 But we can apply the principle of Insertion Sort in this scenario, where instead we will be moving books left and right, 
 creating gaps between them, and inserting a book we pulled out between them until it is fully sorted.
-
-### Visual Representation (Initial)
-
-**Initial Shelf State:**
-* **41:** <progress value="41" max="100"></progress>
-* **56:** <progress value="56" max="100"></progress>
-* **67:** <progress value="67" max="100"></progress>
-* **43:** <progress value="43" max="100"></progress>
-* **12:** <progress value="12" max="100"></progress>
-* **0:** <progress value="0" max="100"></progress>
-
-
 
 ### Sample Code (in Ascending Order)
 
@@ -44,7 +32,7 @@ void insertion(vector<int>& arr) {
 				
 				//Shift the element being checked rightward by 1
 				arr[j + 1] = arr[j];
-				//Moving Leftward, creating the gap we are after
+				//Moving Leftward
 				j = j - 1;
 			}
 			
@@ -65,12 +53,8 @@ int main() {
 }
 
 ```
-### Visual Representation (Sorted)
 
-**Final Sorted State:**
-* **0:** <progress value="0" max="100"></progress>
-* **12:** <progress value="12" max="100"></progress>
-* **41:** <progress value="41" max="100"></progress>
-* **43:** <progress value="43" max="100"></progress>
-* **56:** <progress value="56" max="100"></progress>
-* **67:** <progress value="67" max="100"></progress>
+Output:
+```
+-100 0 12 24 41 43 56 56 67
+```
