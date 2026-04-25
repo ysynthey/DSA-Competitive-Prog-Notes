@@ -1,4 +1,4 @@
-# Selection Sort (C++)
+# Insertion Sort (C++)
 
 **Complexity:** $O(n^2)$
 
