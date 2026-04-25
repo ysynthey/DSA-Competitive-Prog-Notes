@@ -4,12 +4,12 @@ Welcome to my public repository for Data Structures, Algorithms (DSA), and Compe
 
 ## Project Goal
 The objective of this repository is to document efficient problem-solving strategies and algorithm implementations in C++. It serves as both a personal reference and a resource for anyone learning technical computing.
-I write explanations and comments based on how I see them, I like to use examples as plain text and jargon are too intimidating. Learning shouldn't be made difficult on oneself by static means.
+I write explanations and comments based on how I see them, I like to use examples as plain text as the jargon being thrown around in other references are too intimidating and aren't properly explained. Learning shouldn't be made difficult on oneself by static means.
 Also at the time of creating this repo, I am taking DSA in University and I think it would be very embarassing if I were to not excel in it.
 
-## Repository Structure
+## Table of Contents
 The notes are categorized by their type (Is it about Trees or Linked Lists?) and their time complexities (both in folders) to make it easier to find specific algorithms based on what you're currently interested in.
-
+Click to be directed to a topic!
 ## Sorting
 
 ### O(n²) -  Quadratic
