@@ -12,7 +12,7 @@ The notes are categorized by their type (Is it about Trees or Linked Lists?) and
 ## Sorting
 
 ### O(n²) -  Quadratic
-* **[Bubble Sort](./O(n%5E2)/Bubble.md):** A simple comparison-based sort that bubbles the largest elements to the top.
+* **[Bubble Sort](DSA-Competitive-Prog-Notes/blob/main/Sorting/O(n%5E2)/Bubble.md):** A simple comparison-based sort that bubbles the largest elements to the top.
 * **[Selection Sort](./O(n%5E2)/Selection.md):** Systematic scanning to find the minimum value and swapping it once per pass.
 * **[Insertion Sort](./O(n%5E2)/Insertion.md):** Shifting elements to create gaps and inserting a key value (like sorting books on a shelf).
 
