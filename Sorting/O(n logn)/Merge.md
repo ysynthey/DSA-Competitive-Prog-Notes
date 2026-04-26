@@ -76,7 +76,8 @@ void merger(int arr[], int left, int mid, int right) {
 void divider(int arr[], int left, int right) {
     if (left < right) {
         int middle = left + (right - left) / 2;
-        
+
+        //Recursion handling each half
         divider(arr, left, middle);
         divider(arr, middle + 1, right); 
         
@@ -85,7 +86,6 @@ void divider(int arr[], int left, int right) {
 }
 
 int main() {
-    // Added [] and fixed the name usage
     int numbersArr[] = {67, 100, -21, 23, 65, 98, 23112, -3232, 0, 74};
     int n = sizeof(numbersArr) / sizeof(numbersArr[0]);
     
@@ -103,4 +103,4 @@ Output:
 ```
 -3232 -21 0 23 65 67 74 98 100 23112
 ```
-Runtime: * 0.09005 seconds  
+Runtime: * 0.09005 seconds *
