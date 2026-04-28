@@ -1,6 +1,6 @@
 # Merge Sort (C++)
 
-**Complexity:** $O(nlog n$
+**Complexity:** $O(nlog n)$
 
 ### Brief Overview
 Another algorithm following a divide and conquer approach (hence why it is logarithmic).
