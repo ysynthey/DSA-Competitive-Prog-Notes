@@ -1,0 +1,77 @@
+# Binary Search (C++)
+
+**Complexity:** $O(log n)$ - It continuously halves data, which divides by 2.
+
+### Brief Overview
+A logarithmic searching algorithm only applicable to ORDERED arrays/lists with already sorted data that continuously halves the indices to search until the target value is found.
+
+Suppose you are a student writing an essay, and you want to use a certain word to sound fancier and get better marks for following an academic tone, and all you have at the moment is a dictionary because it is the 90's and 
+you do not own a computer. You know a little bit about a word you're after being "grandiose" for example. Do you start reading starting from page 1? Surely not! A sane person would start somewhere in the two-fifths of the thick 
+dictionary, and by your first open you land on 'F'.
+
+Now thankfully you heard and sang the alphabet song several times in your life so you know that G comes after F. Of course, you'd choose to go forward into the G's, and eventually you do find your word and its definition.
+
+And how does this correlate? Well we managed to set a middle (the F's) and recalled that our middle comes before what we're after, so naturally we move forward and ignore those before it. Such is the principle of
+*binary searching*. We repeat this process until we finally zero in our target, which in this case is the word "grandiose", a truly grandiose and fast algorithm.
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <array> // Useful for working with arrays, though I personally prefer vectors, we will also include the simpler arrays.
+using namespace std;
+
+int binarySearcher(int arr[], int target, int n) {
+    //Configure the lowest value, starting at 0 and will be changed by mid + 1 per iteration
+    int min = 0;
+    int max = n - 1;
+    
+    //We set the bounds for how many times to iterate, if min goes over max (inclusive) then what we seek aint even here and return -1
+    while (min <= max) {
+        //Set the middle element, which floors by default
+        int mid = min + (max - min)/2;
+        
+        //Checks if the middle element is already the target element
+        if (arr[mid] == target) {
+            return mid;
+            
+        //Checks if the target element is greater than middle element and if so, only focus on upper half and vice versa
+        } else if (arr[mid] < target) { 
+            min = mid + 1;
+        } else {
+            max = mid - 1;
+        }
+    
+    }
+    return -1;
+}
+
+int main () {
+	// Nine elements, 0-8
+	int arr[] = {4, 5, 6, 8, 9, 10, 11, 12, 18};
+	int target = 18;
+	int n = size(arr); //requires inclusion of <array>, alternatively you can use sizeof()
+    
+    int result = binarySearcher(arr, target, n);
+    
+	if (result != -1) {
+	    cout << target << " found at index #" << result;
+	} else {
+	    cout << target << " not found";
+	}
+
+	return 0;
+}
+```
+
+For this case, our target was 18. Our human brains can very easily tell that it is in the 8th index, but for computers, we must give it clear instructions (programs) to find it even faster than we can perceive.
+
+Output:
+```
+18 found at index #8
+```
+
+Suppose our target becomes 67, we humans can immediately see that it is nowhere to be seen, but thankfully we included instructions for the computer on how to handle such cases.
+Output:
+```
+67 not found
+```
