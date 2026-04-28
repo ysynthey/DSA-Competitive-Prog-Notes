@@ -7,9 +7,11 @@ The objective of this repository is to document efficient problem-solving strate
 I write explanations and comments based on how I see them, I like to use examples as plain text as the jargon being thrown around in other references are too intimidating and aren't properly explained. Learning shouldn't be made difficult on oneself by static means.
 Also at the time of creating this repo, I am taking DSA in University and I think it would be very embarassing if I were to not excel in it.
 
-## Table of Contents
+## Table of Contents - Continuously Updating
 The notes are categorized by their type (Is it about Trees or Linked Lists?) and their time complexities (both in folders) to make it easier to find specific algorithms based on what you're currently interested in.
+
 Click to be directed to a topic!
+
 ### Sorting
 
 ### O(n²) -  Quadratic
@@ -17,6 +19,8 @@ Click to be directed to a topic!
 * **[Selection Sort](./Sorting/O(n%5E2)/Selection.md):** Systematic scanning to find the minimum value and swapping it once per pass.
 * **[Insertion Sort](./Sorting/O(n%5E2)/Insertion.md):** Shifting elements to create gaps and inserting a key value (like sorting books on a shelf).
 
+### O(log n) - Logarithmic
+* **[Binary Search](.Searching/O(log%20n)/Binary%20Search.md):** Continuously divide your array/vector by half until you find your target.
 ###  O(n log n) - Linear Logarithmic
 * **[Merge Sort](./O(n%20log%20n)/Merge.md):** A "Divide and Conquer" strategy that splits arrays recursively and merges them back up already sorted in whatever order you want.
 
