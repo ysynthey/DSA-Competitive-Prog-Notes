@@ -49,7 +49,7 @@ int main () {
 	// Nine elements, 0-8
 	int arr[] = {4, 5, 6, 8, 9, 10, 11, 12, 18};
 	int target = 18;
-	int n = size(arr); //requires inclusion of <array>, alternatively you can use sizeof()
+	int n = size(arr); //requires inclusion of <array>, alternatively you can use sizeof(arr)/sizeof(arr[0])
     
     int result = binarySearcher(arr, target, n);
     
@@ -61,6 +61,7 @@ int main () {
 
 	return 0;
 }
+
 ```
 
 For this case, our target was 18. Our human brains can very easily tell that it is in the 8th index, but for computers, we must give it clear instructions (programs) to find it even faster than we can perceive.
@@ -75,3 +76,4 @@ Output:
 ```
 67 not found
 ```
+Runtime: 0.006s
