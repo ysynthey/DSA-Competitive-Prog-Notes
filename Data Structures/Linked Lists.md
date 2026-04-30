@@ -66,6 +66,11 @@ int main() {
 }
 ```
 
+Output: 
+```
+0 -> 10 -> 20 -> 30 -> 40 -> Null Pointer
+```
+
 
 * **(1) Doubly Linked List** -> A variation of Singly Linked list that allows traversal in both directions; forward and backward, which requires the addition of an extra pointer which we will refer to as a "previous" pointer, along with the "next" pointer, and the node data.
 
@@ -175,6 +180,13 @@ int main() {
     return 0;
 }
 ```
+
+Output: 
+```
+10 < - > 20 < - > 30 < - > 40 < - > 50 < - > Null Pointer
+50 < - > 40 < - > 30 < - > 20 < - > 10 < - > Null Pointer
+```
+
 ### * ** (2) Circular Linked List** -> A linked list without any null pointers, because the previous Node of the head (first) Node will be the last Node, and the next Node of the last Node, will be the head Node.
 Imagine you are playing UNO! with 4 of your friends, you start first, then 2 more friends play their cards, and finally the last friend plays theirs too. Instead of the game ending right there, it is your turn again (pointing to the first Node after last) and so on until the game ends.
 
@@ -272,6 +284,23 @@ int main() {
     return 0;
 }
 ```
+Output: 
+```
+Traversing [20] times
+Node #1 contains: 10 -> Node #2 contains: 20 -> Node #3 contains: 30 -> Node #4 contains: 40 -> Node #5 contains: 50 -> 
+Loop #1
+
+Node #6 contains: 10 -> Node #7 contains: 20 -> Node #8 contains: 30 -> Node #9 contains: 40 -> Node #10 contains: 50 -> 
+Loop #2
+
+Node #11 contains: 10 -> Node #12 contains: 20 -> Node #13 contains: 30 -> Node #14 contains: 40 -> Node #15 contains: 50 -> 
+Loop #3
+
+Node #16 contains: 10 -> Node #17 contains: 20 -> Node #18 contains: 30 -> Node #19 contains: 40 -> Node #20 contains: 50 -> 
+Loop #4
+```
+
+Another great example would be turn-based role-playing games many of us love and spend time on, perhaps the first attacker (head node) will be your leftmost party member, then your second, and so on until... lets say your fourth party member, then the enemy will have their turn to attack, then it becomes your first party member's turn again and this repeats until either side all dies first.
 
 ## Operations:
 
