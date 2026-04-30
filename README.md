@@ -12,7 +12,7 @@ The notes are categorized by their type (Is it about Trees or Linked Lists?) and
 
 Click to be directed to a topic!
 
-### Sorting
+# Sorting
 
 ### O(n²) -  Quadratic
 * **[Bubble Sort](./Sorting/O(n%5E2)/Bubble.md):** A simple comparison-based sort that bubbles the largest elements to the top.
@@ -25,9 +25,13 @@ Click to be directed to a topic!
 * **[Merge Sort](./O(n%20log%20n)/Merge.md):** A "Divide and Conquer" strategy that splits arrays recursively and merges them back up already sorted in whatever order you want.
 
 ### Searching
-soon
+
 ### O(n²) -  Quadratic
 Binary Search
+
+# Data Structures
+
+* **[Linked Lists](<Data Structures/Linked Lists.md>):** A much more dynamic approach to handling several data in several places than arrays, they allow for easy operations such as inserting/deleting/outputting data and allocate space for certain data in several places in memory on the fly in their assigned Nodes. connecting them through a system of pointers. Highly applicable to several games and software as traversal/reversal of linked lists allow access to perhaps, the previous or next page in a shopping website for example.
 
 ## What to expect?
 Each file follows a consistent format:
