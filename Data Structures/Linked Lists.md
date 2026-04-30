@@ -1,11 +1,283 @@
 # Linked Lists
 
-### Purpose: 
+## Purpose: 
 
 
-### Operations:
 
-* Insertion 
-* Deletion
-* Traversal
-* 
+## Types:
+
+* ** (0) Singly Linked List** -> A list that can only be traversed in one direction, from the head to the node with null pointer which signifies the last node. Traversal to a certain Node would be $O(n)$ as you must pass from the head and through each Node before your target Node. They should contain a pointer to the next node or nullptr for designated final nodes of a list, and each node's respective data.
+
+### Singly Linked List in C++:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+struct SinglyNode {
+    int data; //Node data
+    SinglyNode* next; //A pointer to access the next node, must share name with struct, the "next" is our own named variable which simply is for directing to the next Node, if any
+};
+
+void ShowNode(SinglyNode* n) {
+    while (n != nullptr) {
+        cout << n->data << " -> ";
+        n = n -> next; // Move to the next node then repeats until reached null pointer
+    }
+    cout << "Null Pointer" << endl;
+}
+int main() {
+    // Create nodes by NodePointer nodeName = new StructName();
+    SinglyNode* car1 = new SinglyNode();
+    SinglyNode* car2 = new SinglyNode();
+    SinglyNode* car3 = new SinglyNode();
+    SinglyNode* car4 = new SinglyNode();
+    SinglyNode* car5 = new SinglyNode();
+    
+    // Set the data of a node
+    car1 -> data = 0;
+    // Direct the next node
+    car1 -> next = car2;
+    
+    // Repeat for every Node until the last one, car5 in this case
+    car2 -> data = 10;
+    car2 -> next = car3;
+    
+    car3 -> data = 20;
+    car3 -> next = car4;
+    
+    car4 -> data = 30;
+    car4 -> next = car5;
+    
+    car5 -> data = 40;
+    // Because this will be our last node, we put a null pointer so it can avoid crashing.
+    car5 -> next = nullptr;
+    
+    ShowNode(car1);
+    
+    // Delete nodes after usage to prevent memory leak, dont forget that.
+    delete car1;
+    delete car2;
+    delete car3;
+    delete car4;
+    delete car5;
+
+    return 0;
+}
+```
+
+
+* **(1) Doubly Linked List** -> A variation of Singly Linked list that allows traversal in both directions; forward and backward, which requires the addition of an extra pointer which we will refer to as a "previous" pointer, along with the "next" pointer, and the node data.
+
+The previous pointer prevents the need for having to start once again traversing from the head, essentially functioning as a checkpoint, like when you die in a game and you respawn there instead of the very start, saving you from having to travel again to where you left off. More flexible in general than Singly but would need more memory given the extra pointer.
+
+```cpp
+struct DoublyList {
+  int data;
+  DoublyList* next;
+  DoublyList* prev; // The checkpoint i just mentioned, allows for bidirectional traversal
+}
+```
+
+We would want to point the previous destination of the head node to null, since the head itself is already the first, and none come before that; making it pointless to try and traverse there.
+```
+// Not C++, just a representation of how I visualize it, haven't learned how to attach graphics to Github
+(1) Head Node {
+  // Components of a node, lets consider these inside the bracket to be
+  DoublyList* data = 10
+  DoublyList* next -> Node2
+  DoublyList* prev -> nullptr
+
+(1) Every following Node {
+  DoublyList* data = Multiplies of 10 starting at 10 * 2, lets suppose theres 4 more Nodes after the head, therefore being 20, 30, 40, and 50
+  // If not final Node
+  DoublyList next -> NextNode
+  DoublyList prev -> Their previous node (if any), Node 2's prev would be the head
+  // If final Node
+  DoublyList next -> nullptr
+  DoublyList prev -> if we are to have 5 nodes, this must point to the 4th node. 
+```
+
+Now let's have a full implementation.
+
+### Doubly Linked List in C++:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+struct DoublyNode {
+    int data; // Node data
+    DoublyNode* next; // Pointer to next node, if any
+    DoublyNode* prev; // Pointer to the previous node, serving as a checkpoint we can traverse from, if any. This is the key difference between Doubly and Singly
+};
+// Visualizaer of our Node traversal and displaying their data in order, traversed in O(n)
+void ShowNode(DoublyNode* n) {
+    DoublyNode* storage = n; //We start at the head, of course
+    DoublyNode* last = nullptr;
+    
+    while (storage != nullptr) {
+        cout << storage->data << " < - > ";
+        last = storage; // Sets the last node to the already outputed Node
+        storage = storage -> next; // Move to the next node then repeats until reached null pointer
+    }
+    cout << "Null Pointer" << endl;
+    
+    // Lets try to traverse backwards using the properties of a Doubly Linked List
+    while (last != nullptr) {
+        cout << last -> data << " < - > ";
+        last = last -> prev;
+    }
+    cout << "Null Pointer" << endl;
+}
+
+    
+int main() {
+    // Create nodes by NodePointer nodeName = new StructName();
+    DoublyNode* car1 = new DoublyNode();
+    DoublyNode* car2 = new DoublyNode();
+    DoublyNode* car3 = new DoublyNode();
+    DoublyNode* car4 = new DoublyNode();
+    DoublyNode* car5 = new DoublyNode();
+    
+    // Set the data of a node
+    car1 -> data = 10;
+    car1 -> next = car2;
+    car1 -> prev = nullptr;
+   
+    
+    // Repeat for every Node until the last one, car5 in this case, including setting the previous into the... previous node.
+    car2 -> data = 20;
+    car2 -> prev = car1; 
+    car2 -> next = car3;
+    
+    car3 -> data = 30;
+    car3 -> prev = car2;
+    car3 -> next = car4;
+    
+    car4 -> data = 40;
+    car4 -> prev = car3;
+    car4 -> next = car5;
+    
+    car5 -> data = 50;
+    car5 -> prev = car4;
+    car5 -> next = nullptr;
+    
+    ShowNode(car1);
+    
+    // Delete nodes after usage to prevent memory leak, dont forget that.
+    delete car1;
+    delete car2;
+    delete car3;
+    delete car4;
+    delete car5;
+
+    return 0;
+}
+```
+### * ** (2) Circular Linked List** -> A linked list without any null pointers, because the previous Node of the head (first) Node will be the last Node, and the next Node of the last Node, will be the head Node.
+Imagine you are playing UNO! with 4 of your friends, you start first, then 2 more friends play their cards, and finally the last friend plays theirs too. Instead of the game ending right there, it is your turn again (pointing to the first Node after last) and so on until the game ends.
+
+But then there's the iconic Reverse card that inverts the turn order. You were initially the first player, and your friend the last. After they play the card, the turn order inverts itself, and instead of becoming your turn after theirs, it becomes the turn of the previous player and would take quite the time to become your turn again. This can be directly referred to as Reversing Linked Lists, a topic gaining popularity for reasons I am yet to know, more on that later on let's get the fundamentals first.
+
+####  * ** (2.a) Circular Singly List** -> A linked list traversing in a single direction, but instead of the last node pointing to null pointer, it sends you back to head.
+
+####  * ** (2.b) Circular Doubly List** -> Very similar to its Singly variant, except it traverses in both directions and through previous Nodes, also with the last node's next node being the head and the head's previous node being the last node.
+
+One can simply draw a circle, mark two ends, and one can be interpreted as the head (first) and the other the last, which moves back to the head after a cycle or end.
+
+### Circular Doubly Linked List in C++:
+
+```cpp
+
+#include <iostream>
+using namespace std;
+
+struct DoublyNode {
+    int data; // Node data
+    DoublyNode* next; // Pointer to next node, if any
+    DoublyNode* prev; // Pointer to the previous node, serving as a checkpoint we can traverse from, if any. This is the key difference between Doubly and Singly
+};
+// Visualizaer of our Node traversal and displaying their data in order, traversed in O(n)
+void ShowNode(DoublyNode* n, int iterations) {
+    if (n == nullptr) return;
+    
+    DoublyNode* storage = n;
+    cout << "Traversing [" << iterations << "] times" << endl;
+    
+    for (int i = 1; i <= iterations; i++) {
+        cout << "Node #" << i << " contains: " << storage -> data << " -> ";
+        storage = storage -> next;
+        
+        if (i % 5 == 0) {
+            cout << "\nLoop #" << i/5 << endl << endl;
+        }
+    }
+    
+}
+    
+int main() {
+    // Create nodes by NodePointer nodeName = new StructName();
+    DoublyNode* car1 = new DoublyNode();
+    DoublyNode* car2 = new DoublyNode();
+    DoublyNode* car3 = new DoublyNode();
+    DoublyNode* car4 = new DoublyNode();
+    DoublyNode* car5 = new DoublyNode();
+    
+    // Set the data of a node
+    car1 -> data = 10;
+    car1 -> next = car2;
+    car1 -> prev = car5;
+   
+   
+    car2 -> data = 20;
+    car2 -> prev = car1; 
+    car2 -> next = car3;
+    
+    car3 -> data = 30;
+    car3 -> prev = car2;
+    car3 -> next = car4;
+    
+    car4 -> data = 40;
+    car4 -> prev = car3;
+    car4 -> next = car5;
+    
+    car5 -> data = 50;
+    car5 -> prev = car4;
+    car5 -> next = car1;
+    
+    ShowNode(car1, 20); // Set # of iterations
+    
+    
+    // We should also break the circular list after it has done what its asked to before deleting the nodes themselves. 
+    car5 -> next = nullptr;
+    car1 -> prev = nullptr;
+    
+    // Delete nodes after usage to prevent memory leak, alternatively can be done dynamically in another class
+    delete car1;
+    delete car2;
+    delete car3;
+    delete car4;
+    delete car5;
+    
+
+    // Just learned now that it is a great practice to set a node to a null pointer after deleting its pointer, preventing working with garbage data if ever accessed
+    car1 = nullptr;
+    car2 = nullptr;
+    car3 = nullptr;
+    car4 = nullptr;
+    car5 = nullptr;
+    
+    // It would also be better practice to have these handled dynamically in another class/function, perhaps next time.
+    return 0;
+}
+```
+
+## Operations:
+
+* **Insertion** - Add a new element/data at the beginning of the list
+* **Deletion** - Opposite of insertion, deletes an element/data also at the beginning of the list
+* **Searching** - Searches for a specified data by travelling starting at the first node (head) by $O(n)$ until it finds a node containing said data.
+* **Display** - Display the entire list, which contains all its nodes, respective data, and their next destination nodes
+* **Delete** - Not to be confused with "Deletion", it deletes a target data in a certain node, also traversing linearly from the head to its destination.
+  
