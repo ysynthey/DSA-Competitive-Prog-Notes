@@ -6,7 +6,7 @@
 
 ## Types:
 
-* ** (0) Singly Linked List** -> A list that can only be traversed in one direction, from the head to the node with null pointer which signifies the last node. Traversal to a certain Node would be $O(n)$ as you must pass from the head and through each Node before your target Node. They should contain a pointer to the next node or nullptr for designated final nodes of a list, and each node's respective data.
+* **(0) Singly Linked List** -> A list that can only be traversed in one direction, from the head to the node with null pointer which signifies the last node. Traversal to a certain Node would be $O(n)$ as you must pass from the head and through each Node before your target Node. They should contain a pointer to the next node or nullptr for designated final nodes of a list, and each node's respective data.
 
 ### Singly Linked List in C++:
 
@@ -187,7 +187,7 @@ Output:
 50 < - > 40 < - > 30 < - > 20 < - > 10 < - > Null Pointer
 ```
 
-### * ** (2) Circular Linked List** -> A linked list without any null pointers, because the previous Node of the head (first) Node will be the last Node, and the next Node of the last Node, will be the head Node.
+### * **(2) Circular Linked List** -> A linked list without any null pointers, because the previous Node of the head (first) Node will be the last Node, and the next Node of the last Node, will be the head Node.
 Imagine you are playing UNO! with 4 of your friends, you start first, then 2 more friends play their cards, and finally the last friend plays theirs too. Instead of the game ending right there, it is your turn again (pointing to the first Node after last) and so on until the game ends.
 
 But then there's the iconic Reverse card that inverts the turn order. You were initially the first player, and your friend the last. After they play the card, the turn order inverts itself, and instead of becoming your turn after theirs, it becomes the turn of the previous player and would take quite the time to become your turn again. This can be directly referred to as Reversing Linked Lists, a topic gaining popularity for reasons I am yet to know, more on that later on let's get the fundamentals first.
