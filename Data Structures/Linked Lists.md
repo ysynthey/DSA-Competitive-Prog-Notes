@@ -309,4 +309,6 @@ Another great example would be turn-based role-playing games many of us love and
 * **Searching** - Searches for a specified data by travelling starting at the first node (head) by $O(n)$ until it finds a node containing said data.
 * **Display** - Display the entire list, which contains all its nodes, respective data, and their next destination nodes
 * **Delete** - Not to be confused with "Deletion", it deletes a target data in a certain node, also traversing linearly from the head to its destination.
+
+## Linked List Insertion (Doubly) 
   
