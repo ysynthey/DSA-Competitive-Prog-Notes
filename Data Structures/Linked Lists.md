@@ -310,10 +310,121 @@ Another great example would be turn-based role-playing games many of us love and
 * **Display** - Display the entire list, which contains all its nodes, respective data, and their next destination nodes
 * **Delete** - Not to be confused with "Deletion", it deletes a target data in a certain node, also traversing linearly from the head to its destination.
 
-## Linked List Insertion (Singly)
+## Linked List Operations (Singly)
 
 * Insertion at Head - $O(1)$ since the head pointer is usually already known and is executed early given that the head is the beginning of a list.
   
-* Insertion at Last Node
-* Insertion after a certain Node
+* Insertion at Last Node - $O(n)$ as you must traverse from head to final node.
+* Insertion after a certain Node - $O(n)$ as list traversal must start from head to target node, unless there is already a pointer to your target
+
+``` cpp
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// The C++ version of your "node" dictionary
+struct Node {
+    string data;
+    Node* next;
+};
+
+// Helper function to create a "node"
+Node* create_node(string data) {
+    Node* new_node = new Node();
+    new_node->data = data;
+    new_node->next = nullptr;
+    return new_node;
+}
+
+// Function to insert at head
+Node* insert_at_start(Node* head, string data) {
+    Node* new_node = create_node(data);
+    new_node->next = head;
+    return new_node; // This becomes the new head
+}
+
+// Function to insert at end
+Node* insert_at_end(Node* head, string data) {
+    Node* new_node = create_node(data);
+    if (head == nullptr) {
+        return new_node;
+    }
+
+    Node* current = head;
+    while (current->next != nullptr) {
+        current = current->next;
+    }
+    current->next = new_node;
+    return head;
+}
+
+// Function to insert in between Nodes
+Node* insert_between(Node* head, string target_data, string new_data) {
+    Node* current = head;
+    while (current != nullptr) {
+        if (current->data == target_data) {
+            Node* new_node = create_node(new_data);
+            new_node->next = current->next;
+            current->next = new_node;
+            return head;
+        }
+        current = current->next;
+    }
+    cout << "Target " << target_data << " not found." << endl;
+    return head;
+}
+
+void display_list(Node* head) {
+    Node* current = head;
+    while (current != nullptr) {
+        cout << current->data << " -> ";
+        current = current->next;
+    }
+    cout << "NULL" << endl;
+}
+
+int main() {
+    Node* head = nullptr;
+    int num_elements;
+    string val;
+
+    // Input initial elements
+    cout << "How many Nodes?: ";
+    cin >> num_elements;
+    
+    for (int i = 0; i < num_elements; i++) {
+        cout << "Enter node data " << i + 1 << ": ";
+        cin >> val;
+        head = insert_at_end(head, val);
+    }
+
+    display_list(head);
+
+    // Testing the three insertion types
+    cout << "\n--- Manual Insertion at Head, End, and Between Nodes ---" << endl;
+    
+    cout << "Insert at START: ";
+    cin >> val;
+    head = insert_at_start(head, val);
+
+    cout << "Insert at END: ";
+    cin >> val;
+    head = insert_at_end(head, val);
+
+    string target;
+    cout << "After which value should we insert in the MIDDLE? ";
+    cin >> target;
+    cout << "Value to insert: ";
+    cin >> val;
+    head = insert_between(head, target, val);
+
+    cout << "\nFinal List:" << endl;
+    display_list(head);
+
+    return 0;
+}
+```
   
